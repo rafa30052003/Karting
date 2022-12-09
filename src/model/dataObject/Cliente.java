@@ -51,8 +51,6 @@ public class Cliente {
 	public String getTelefono() {
 		return this.telefono;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "Cliente \ndni=" + dni + "\nnombre=" + nombre + "\ntelefono=" + telefono + "\nedad=" + edad + "";
