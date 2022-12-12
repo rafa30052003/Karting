@@ -41,7 +41,7 @@ public class util {
 	  }
 	  
 	  
-	  public static int vaidaEdad(String mensaje) {
+	  public static int validaEdad(String mensaje) {
 		  Scanner sc = new Scanner (System.in);
 		  int result = 0;
 		  boolean valid = false;

@@ -2,12 +2,12 @@ package model.DAO;
 
 import model.dataObject.Cliente;
 
-public class ClienteDAO {
-	public Cliente[] muestraCliente() {
-		getClientes();
-	}
+public class Circuito {
+	private String nombreCir;
 	private Cliente[] clientes;
-	public void ArrayClientes() {
+	
+	public Circuito(String nombreCir){
+		this.nombreCir=nombreCir;
 		clientes = new Cliente[10];
 	}
 	/**
@@ -49,10 +49,10 @@ public class ClienteDAO {
 	 */
 	public boolean createCliente(Cliente c) {
 		boolean valid=false;
-		if(c!=null && nClientes()<30 && muestraClienteDni(c.getDni())==null) {
+		if(c!=null && nClientes()<30 && showClienteDni(c.getDni())==null) {
 			for (int i = 0; i < clientes.length && !valid; i++) {
 				if(clientes[i]==null) {
-					cliente[i]=c;
+					clientes[i]=c;
 					valid=true;
 				}
 			}
