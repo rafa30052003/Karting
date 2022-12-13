@@ -44,20 +44,20 @@ public class ClienteController {
 	
 	//CONTROLADOR PARA VER CLIENTES.
 	public static void switchShowCliente(Circuito c) {
-		View.showCliente(c.showClienteDni(util.devuelveDNI("introduce dni")));
+		View.showCliente(c.showClienteDni(util.devuelveDNI("Introduce dni: ")));
 		
 	}
 	
 	//CONTROLADOR PARA MODIFICAR CLIENTES.
 	public static void switchUpdateCliente(Circuito c) {
 		Cliente cli = null;
-		cli=c.showClienteDni(util.devuelveDNI("introduce dni"));
+		cli=c.showClienteDni(util.devuelveDNI("Introduce dni: "));
 		View.editCliente(cli);
 	}
 	
 	//CONTROLADOR PARA ELIMINAR CLIENTES.
 	public static void switchDeleteCliente(Circuito c) {
-		c.deleteCliente(c.showClienteDni(util.devuelveDNI("introduce dni")));
+		c.deleteCliente(c.showClienteDni(util.devuelveDNI("Introduce dni: ")));
 		View.submenuEliminar();
 	}
 	
