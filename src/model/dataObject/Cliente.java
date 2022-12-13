@@ -66,7 +66,12 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "Cliente \ndni=" + dni + "\nnombre=" + nombre + "\ntelefono=" + telefono + "\nedad=" + edad + "";
+		return "   \n _____________CLIENTE___________"
+				+ "\n|  dni -->      " + dni  
+				+ "\n|  nombre -->   " + nombre 
+				+ "\n|  telefono --> " + telefono
+				+ "\n|  edad -->     " + edad 
+				+" \n|_______________________________|";
 	}
 	
 	public boolean equals(Object obj) {
