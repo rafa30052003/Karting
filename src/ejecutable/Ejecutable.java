@@ -1,10 +1,11 @@
 package ejecutable;
-
+import Controller.*;
+import model.DAO.Circuito;
 public class Ejecutable {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Circuito c = new Circuito("Jarama");
+		ClienteController.switchPrincipal(c);
 	}
 
 }

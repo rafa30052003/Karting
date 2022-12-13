@@ -65,40 +65,59 @@ public class util {
 	  
 	  
 	  
-	  public static void validaDNI (String DNI) {
-		  if (! (DNI.length()>=8 && DNI.length()<=9)) {
-			System.out.println("longitad no correcta");
+	  public static boolean validaDNI (String DNI) {
+		  
+		  boolean result=false;
+		  
+		  if (DNI.length()==9 && Character.isLetter(DNI.charAt(8))==true) {
+
+			  char letraMayuscula=((DNI.substring(8)).toUpperCase()).charAt(0);
+			  	if(soloNumero(DNI)==true && letraDNI(DNI)==letraMayuscula) {
+				  result = true;
+			  }
 		  }
-		  String parte_numerica = DNI.substring(0, DNI.length()-1);
+		  return result;
 		  
-		  
-		  int numeroDNI = 0;
-		  
-		  try {
-			  numeroDNI = Integer.parseInt(parte_numerica);
-		} catch (Exception e) {
-			System.out.println("la parte numerica debe ser un numero");
-		}
-		
-		  char letra= DNI.substring(DNI.length()-1, DNI.length()).toUpperCase().charAt(0);
-		  
-		  if(!(letra>='A' && letra<='Z')) {
-			  System.out.println("la parre de la letra no es correcta");
-		  }
-		  
-		  final int divisor= 23;
-		  //Ya hemos validado el formato
-		  char []  letrasNIF = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
-		  
-		  int resto= numeroDNI % 23;
-		  
-		  String nuevoDNI = numeroDNI + "" +  letrasNIF[resto];
-		  if(DNI.startsWith("0")) {
-		  }
-		  
-		  if(!(nuevoDNI.equals(DNI))) {
-			  System.out.println("el dni no tiene el formato adecuado");
-		  }
 	  }
-	  
+	private static boolean soloNumero(String DNI) {
+		boolean result=true;
+		String numero=DNI.substring(0,8);
+		for (int i = 0; i < 8 && result; i++) {
+			char digito=DNI.charAt(i);
+			if(digito<'0' || digito>'9') {
+				result=false;
+			}
+			
+		} 
+		return result;
+			
+		
+	}
+	public static char letraDNI(String dni){
+		int miDNI=Integer.parseInt(dni.substring(0,8));
+		int resto=0;
+		char miLetra=' ';
+		char[] asignacionLetra={'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+		
+		resto=miDNI % 23;
+		miLetra=asignacionLetra[resto];
+		return miLetra;
+		}
+	
+	
+	public static String devuelveDNI(String dni) {
+		boolean valid = false;
+		
+		do {
+			try {
+				if(validaDNI(dni)==true) {
+					valid = true;
+				}
+			} catch (Exception e) {
+				System.out.println("Introduce el dni correctamente1");
+			}
+			
+		} while (!valid);
+		return dni;
+	}
  }
