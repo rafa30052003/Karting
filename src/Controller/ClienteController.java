@@ -6,24 +6,24 @@ import model.dataObject.Cliente;
 public class ClienteController {
 	
 	
-	
+	// MENU PRINCIPAL.
 	public static void switchPrincipal(Circuito c) {
 		boolean value=false;
 		do {	
 			View.menuPrincipal();
-			int op=util.leeEntero("Introduce la opcion deseada");
+			int op=util.leeEntero("Introduce la opcion deseada: ");
 			switch (op) {
 			case 1:
-					switchCreateCliente(c);
+				switchCreateCliente(c);
 				break;
 			case 2:
-				
+				switchShowCliente(c);
 				break;
 			case 3:
-			
+				switchUpdateCliente(c);
 				break;
 			case 4:
-			
+				switchDeleteCliente(c);
 				break;
 			case 0:
 				value=true;
@@ -37,19 +37,33 @@ public class ClienteController {
 	}
 	
 	
+	//CONTROLADOR PARA CREAR CLIENTES.
 	public static void switchCreateCliente(Circuito c) {
-		c.createCliente(readCliente());
+		c.createCliente(View.readCliente());
 	}
 	
-	
-	public static Cliente readCliente() {
-		String dni = util.devuelveDNI(util.leeString("introduce dni"));
-		String nombre = util.leeString("introduce el nombre");
-		int  edad = util.validaEdad("introduce la edad");
-		String tlf = util.leeString("introduce un tlf");
-		 return new Cliente(dni,nombre,edad,tlf);
+	//CONTROLADOR PARA VER CLIENTES.
+	public static void switchShowCliente(Circuito c) {
+		View.showCliente(c.showClienteDni(util.devuelveDNI("introduce dni")));
 		
 	}
 	
+	//CONTROLADOR PARA MODIFICAR CLIENTES.
+	public static void switchUpdateCliente(Circuito c) {
+		Cliente cli = null;
+		cli=c.showClienteDni(util.devuelveDNI("introduce dni"));
+		View.editCliente(cli);
+	}
 	
+	//CONTROLADOR PARA ELIMINAR CLIENTES.
+	public static void switchDeleteCliente(Circuito c) {
+		c.deleteCliente(c.showClienteDni(util.devuelveDNI("introduce dni")));
+		View.submenuEliminar();
+	}
+	
+	
+	
+	
+	
+
 }
