@@ -26,7 +26,7 @@ public class View {
 	
 	
 	
-	//SUBMENU MOSTRAR CLIENTE
+	//MOSTRAR CLIENTE
 	 
 	public static void showCliente(Cliente c) {
 		System.out.println("                             ");
@@ -38,13 +38,13 @@ public class View {
 		System.out.println(c);
 	}
 	
-	//SUBMENU ELIMINAR CLIENTE
+	//ELIMINAR CLIENTE
 	
 	public static void submenuEliminar() {
 		System.out.println("                             ");
 		System.out.println(" ___________________________ ");
 		System.out.println("|                           |");
-		System.out.println("|      MOSTRAR CLIENTE      |");
+		System.out.println("|      ELIMINAR CLIENTE     |");
 		System.out.println("|___________________________|");
 		System.out.println("                             ");
 		System.out.println("Has eliminado correctamente el cliente seleccionado.");
