@@ -14,11 +14,18 @@ public class Cliente {
 	 * @param e	edad
 	 * @param t	telefono
 	 */
+	
 	public Cliente(String dni, String nombre, int edad, String telefono) {
 		this.dni=dni;
 		this.nombre=nombre;
 		this.edad=edad;
 		this.telefono=telefono;
+	}
+	public Cliente(String nombre, int edad, String telefono) {
+		super();
+		this.nombre = nombre;
+		this.edad = edad;
+		this.telefono = telefono;
 	}
 	public Cliente() {
 		nombre="C";
@@ -26,6 +33,7 @@ public class Cliente {
 		edad=0;
 		telefono="E";
 	}
+	
 	/**
 	 *  GETTERS Y SETTERS
 	 */
