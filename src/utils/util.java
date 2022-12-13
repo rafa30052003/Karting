@@ -200,5 +200,8 @@ public class util {
 		return result;
 	}
 	
+	public static void mensaje(String mensaje) {
+		System.out.println(mensaje);
+	}
 	
  }
