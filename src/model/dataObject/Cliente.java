@@ -1,5 +1,7 @@
 package model.dataObject;
 
+import utils.util;
+
 public class Cliente {
 	private String dni;
 	private String nombre;
@@ -27,8 +29,11 @@ public class Cliente {
 	/**
 	 *  GETTERS Y SETTERS
 	 */
-	public void setDni(String dni) {
-		this.dni = dni;
+	public String setDni(String dni) {
+		if(util.validaDNI(dni)) {
+		this.dni=dni;	
+		}
+		return this.dni;
 	}
 	public String getDni() {
 		return this.dni;
